@@ -1,0 +1,32 @@
+<form class="form-signin" [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+  <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['first'].valid && complexForm.controls['first'].touched}">
+    <md-input-container>
+      <input md-input class="form-control" type="text" placeholder="First Name" [formControl]="complexForm.controls['first']">
+    </md-input-container>
+    <div *ngIf="complexForm.controls['first'].errors && complexForm.controls['first'].touched" class="alert alert-danger">You must set first name.</div>
+  </div>
+  <br/>
+  <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['last'].valid && complexForm.controls['last'].touched}">
+    <md-input-container>
+      <input md-input class="form-control" type="text" placeholder="Last Name" [formControl]="complexForm.controls['last']">
+    </md-input-container>
+    <div *ngIf="complexForm.controls['last'].errors && complexForm.controls['last'].touched" class="alert alert-danger">You must include a valid phone number.</div>
+  </div>
+  <br/>
+  <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['email'].valid && complexForm.controls['email'].touched}">
+    <md-input-container>
+      <input md-input class="form-control" type="email" placeholder="E-mail" [formControl]="complexForm.controls['email']">
+    </md-input-container>
+    <div *ngIf="complexForm.controls['email'].errors && complexForm.controls['email'].touched" class="alert alert-danger">You must include a valid e-mail address.</div>
+  </div>
+  <br/>
+  <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['phone'].valid && complexForm.controls['phone'].touched}">
+    <md-input-container>
+      <input md-input class="form-control" type="text" placeholder="Phone Number" [formControl]="complexForm.controls['phone']">
+    </md-input-container>
+    <div *ngIf="complexForm.controls['phone'].errors && complexForm.controls['phone'].touched" class="alert alert-danger">You must include a valid phone number.</div>
+  </div>
+  <button (click)="submitForm($event)" id="signupSubmit" type="button" md-button [disabled]="!complexForm.valid">
+          Submit
+  </button>
+</form>
